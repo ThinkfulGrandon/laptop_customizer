@@ -1,24 +1,16 @@
 import React from 'react'
-import { render } from 'react-dom';
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD' 
-});
-
-
-
+    style: 'currency',
+    currency: 'USD'
+  });
 
 function Summary(props) {
-
-  console.log(props.stat)
-  return (
-    
-    Object.keys(props.stat.selected).map((feature, idx) => {
-
+const summary = Object.keys(this.props.stat.selected).map((feature, idx) => {
     const featureHash = feature + '-' + idx;
-    const selectedOption = props.stat.selected[feature];
+    const selectedOption = this.props.stat.selected[feature];
 
+    return (
       <div className="summary__option" key={featureHash}>
         <div className="summary__option__label">{feature} </div>
         <div className="summary__option__value">{selectedOption.name}</div>
@@ -26,9 +18,8 @@ function Summary(props) {
           {USCurrencyFormat.format(selectedOption.cost)}
         </div>
       </div>
-    
-    }
-  )
-  )
+    );
+  });
 }
-  export default Summary; 
+
+export default Summary

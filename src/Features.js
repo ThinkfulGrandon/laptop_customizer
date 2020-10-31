@@ -1,17 +1,18 @@
-import React from 'react';
-import slugify from 'slugify';
-// import updateFeature from './UpdateFeature'
+import React from 'react'
+import slugify from 'slugify'
+// import usDollar from './Total'
+
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
-  currency: 'USD' 
+  currency: 'USD'
 });
- 
 
-
-function Feature(props) {
-  const feats = Object.keys(props.features).map((feature, idx) => {
+function Features(props) {
+  // console.log(props.features)
+  const features = Object.keys(this.props.features).map((feature, idx) => {
+    console.log(props.features)
     const featureHash = feature + '-' + idx;
-    const options = props.features[feature].map(item => {
+    const options = this.props.features[feature].map(item => {
       const itemHash = slugify(JSON.stringify(item));
       return (
         <div key={itemHash} className="feature__item">
@@ -20,8 +21,8 @@ function Feature(props) {
             id={itemHash}
             className="feature__option"
             name={slugify(feature)}
-            checked={item.name === props.state.selected[feature].name}
-            onChange={e => props.updateFeature(feature, item)}
+            checked={item.name === this.state.selected[feature].name}
+            onChange={e => this.updateFeature(feature, item)}
           />
           <label htmlFor={itemHash} className="feature__label">
             {item.name} ({USCurrencyFormat.format(item.cost)})
@@ -29,7 +30,7 @@ function Feature(props) {
         </div>
       );
     });
-
+  
     return (
       <fieldset className="feature" key={featureHash}>
         <legend className="feature__name">
@@ -39,7 +40,6 @@ function Feature(props) {
       </fieldset>
     );
   });
-
-  return feats
 }
-export default Feature;
+
+export default Features

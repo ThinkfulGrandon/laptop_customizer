@@ -1,19 +1,10 @@
-import React from 'react';
 
+function usDollar() {
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD' 
-});
+    style: 'currency',
+    currency: 'USD'
+  });
 
-function Total(props) {
-  // console.log(props.stuff.selected)
-    const total = Object.keys(props.stuff.selected).reduce(
-    (acc, curr) => acc + props.stuff.selected[curr].cost,
-    0
-    
-  );
-  const Total = USCurrencyFormat.format(total)
-  return Total
 }
 
-export default Total; 
+export default usDollar;
