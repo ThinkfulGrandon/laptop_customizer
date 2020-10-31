@@ -6,14 +6,13 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 });
 
 function Total(props) {
-  console.log(props.stuff.selected)
+  // console.log(props.stuff.selected)
     const total = Object.keys(props.stuff.selected).reduce(
     (acc, curr) => acc + props.stuff.selected[curr].cost,
     0
     
   );
   const Total = USCurrencyFormat.format(total)
-  console.log(Total)
   return Total
 }
 

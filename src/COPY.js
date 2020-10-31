@@ -84,6 +84,7 @@ class App extends Component {
     }
   };
  
+ 
 
   updateFeature(feature, newValue){
     const selected = Object.assign({}, this.state.selected);
@@ -101,7 +102,7 @@ class App extends Component {
     //     return (
     //       <div key={itemHash} className="feature__item">
     //         <input
-    //           type="radio"
+    //           type="radio" 
     //           id={itemHash}
     //           className="feature__option"
     //           name={slugify(feature)}

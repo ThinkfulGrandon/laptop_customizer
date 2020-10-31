@@ -5,8 +5,7 @@ import React, { Component } from 'react';
 import slugify from 'slugify';
 
 import './App.css';
-import Summary from './Summary'
-import updateFeature from './UpdateFeature'
+
 
 // This object will allow us to
 // easily convert numbers into US dollar values
@@ -112,7 +111,7 @@ class App extends Component {
             </label>
           </div>
         );
-      });
+      }); 
 
       return (
         <fieldset className="feature" key={featureHash}>
