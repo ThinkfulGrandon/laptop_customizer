@@ -63,6 +63,7 @@ const FEATURES = {
 const features = FEATURES;
 
 class App extends Component {
+
   state = {
     selected: {
       Processor: {
@@ -83,7 +84,6 @@ class App extends Component {
       }
     }
   };
- 
  
 
   updateFeature(feature, newValue){
@@ -157,7 +157,7 @@ class App extends Component {
           <section className="main__summary">
             <h2>Your cart</h2>
             <Summary
-            state = {this.state}/>
+            stat = {this.state}/>
             <div className="summary__total">
               <div className="summary__total__label">Total</div>
               <div className="summary__total__value">
