@@ -6,9 +6,9 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   });
 
 function Summary(props) {
-const summary = Object.keys(this.props.stat.selected).map((feature, idx) => {
+const summary = Object.keys(props.selected).map((feature, idx) => {
     const featureHash = feature + '-' + idx;
-    const selectedOption = this.props.stat.selected[feature];
+    const selectedOption = props.selected[feature];
 
     return (
       <div className="summary__option" key={featureHash}>
@@ -20,6 +20,7 @@ const summary = Object.keys(this.props.stat.selected).map((feature, idx) => {
       </div>
     );
   });
+  return summary
 }
 
 export default Summary

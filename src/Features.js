@@ -1,45 +1,27 @@
 import React from 'react'
 import slugify from 'slugify'
-// import usDollar from './Total'
+import Options from './Options'
 
-const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD'
-});
 
-function Features(props) {
-  // console.log(props.features)
-  const features = Object.keys(this.props.features).map((feature, idx) => {
-    console.log(props.features)
-    const featureHash = feature + '-' + idx;
-    const options = this.props.features[feature].map(item => {
-      const itemHash = slugify(JSON.stringify(item));
+
+
+function Features(props){
+  const features = Object.keys(props.features).map((feature, idx) => {
       return (
-        <div key={itemHash} className="feature__item">
-          <input
-            type="radio"
-            id={itemHash}
-            className="feature__option"
-            name={slugify(feature)}
-            checked={item.name === this.state.selected[feature].name}
-            onChange={e => this.updateFeature(feature, item)}
-          />
-          <label htmlFor={itemHash} className="feature__label">
-            {item.name} ({USCurrencyFormat.format(item.cost)})
-          </label>
-        </div>
+        <fieldset className="feature" key="feature">
+          <legend className="feature__name">
+            <h3 key={idx}>{feature}</h3>
+          </legend>
+          <Options 
+            selected={props.selected} 
+            features={props.features} 
+            feature={feature} 
+            updateFeature={props.updateFeature} 
+          /> 
+        </fieldset>
       );
     });
-  
-    return (
-      <fieldset className="feature" key={featureHash}>
-        <legend className="feature__name">
-          <h3>{feature}</h3>
-        </legend>
-        {options}
-      </fieldset>
-    );
-  });
+    return features;
 }
 
 export default Features
