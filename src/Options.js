@@ -7,7 +7,6 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 });
 
 function Options(props) {
-    console.log(props.features[props.feature])
     const options = props.features[props.feature].map(item => {
         const itemHash = slugify(JSON.stringify(item));
 

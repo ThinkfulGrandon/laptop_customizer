@@ -115,7 +115,6 @@ class App extends Component {
               features={this.state.features}
           />
 
-          
         </main>
       </div>
     );
