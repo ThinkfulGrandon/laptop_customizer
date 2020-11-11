@@ -1,4 +1,6 @@
 import React from 'react'
+import Total from './Total';
+
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -18,9 +20,18 @@ const summary = Object.keys(props.selected).map((feature, idx) => {
           {USCurrencyFormat.format(selectedOption.cost)}
         </div>
       </div>
+      
     );
   });
-  return summary
+  return (
+    <section className="main__summary">
+      <h2>Your cart</h2>
+      {summary}
+      <Total
+        selected={props.selected}
+        features={props.features}/>
+    </section>
+  )
 }
 
 export default Summary
