@@ -8,7 +8,7 @@ import Options from './Options'
 function Features(props){
   const features = Object.keys(props.features).map((feature, idx) => {
       return (
-        <fieldset className="feature" key="feature">
+        <fieldset className="feature" key={`feature${idx}`}>
           <legend className="feature__name">
             <h3 key={idx}>{feature}</h3>
           </legend>
