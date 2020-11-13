@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Summary__Total from './SummaryTotal'
 
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
@@ -7,13 +7,7 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
     currency: 'USD'
   });
 
-function Summary(props) {
-
-  const total = Object.keys(props.selected).reduce(
-    (acc, curr) => acc + props.selected[curr].cost,
-    0
-  )
-
+function Summary__Options(props) {
   const summary = Object.keys(props.selected).map((feature, idx) => {
     const featureHash = feature + '-' + idx;
     const selectedOption = props.selected[feature];
@@ -30,18 +24,9 @@ function Summary(props) {
     );
   });
   return (
-    <section className="main__summary">
-      <h2>Your cart</h2>
-      {summary}
-
-        <div className="summary__total">
-          <div className="summary__total__label">Total</div>
-          <div className="summary__total__value">
-            {USCurrencyFormat.format(total)}
-          </div>
-        </div>
-    </section>
+   
+      summary
   )
 }
 
-export default Summary
+export default Summary__Options
